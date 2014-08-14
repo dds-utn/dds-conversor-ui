@@ -59,69 +59,26 @@ public class ConversorView extends javax.swing.JFrame {
   private JTextField celsiusTextField;
 
   public ConversorView() {
-    this.initComponents();
+    initComponents();
   }
 
   private void initComponents() {
-    this.setTitle("Celsius Converter");
-    this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    setTitle("Celsius Converter");
+    setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-    this.celsiusTextField = new JTextField();
-    this.fahrenheitLabel = new JLabel();
+    celsiusTextField = new JTextField();
+    fahrenheitLabel = new JLabel();
 
-    this.celsiusLabel = new JLabel();
-    this.celsiusLabel.setText("Celsius");
+    celsiusLabel = new JLabel();
+    celsiusLabel.setText("Celsius");
 
-    this.convertButton = new JButton();
-    this.convertButton.setText("Convert");
-    this.convertButton.addActionListener(evt -> controller.convertir(evt));
+    convertButton = new JButton();
+    convertButton.setText("Convert");
+    convertButton.addActionListener(evt -> controller.convertir(evt));
 
-    this.fahrenheitLabel.setText("Fahrenheit");
-    this.configureLayout();
-    this.pack();
-  }
-
-  protected void configureLayout() {
-    GroupLayout layout = new GroupLayout(this.getContentPane());
-    this.getContentPane().setLayout(layout);
-    layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
-        layout
-            .createSequentialGroup()
-            .addContainerGap()
-            .addGroup(
-                layout
-                    .createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addGroup(
-                        layout
-                            .createSequentialGroup()
-                            .addComponent(this.celsiusTextField, GroupLayout.PREFERRED_SIZE,
-                                GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(this.celsiusLabel))
-                    .addGroup(
-                        layout.createSequentialGroup().addComponent(this.convertButton)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(this.fahrenheitLabel)))
-            .addContainerGap(27, Short.MAX_VALUE)));
-
-    layout.linkSize(SwingConstants.HORIZONTAL, new Component[] { this.convertButton,
-        this.celsiusTextField });
-
-    layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
-        layout
-            .createSequentialGroup()
-            .addContainerGap()
-            .addGroup(
-                layout
-                    .createParallelGroup(Alignment.BASELINE)
-                    .addComponent(this.celsiusTextField, GroupLayout.PREFERRED_SIZE,
-                        GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(this.celsiusLabel))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addGroup(
-                layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(this.convertButton).addComponent(this.fahrenheitLabel))
-            .addContainerGap(21, Short.MAX_VALUE)));
+    fahrenheitLabel.setText("Fahrenheit");
+    configureLayout();
+    pack();
   }
 
   public String getCelsiusText() {
@@ -133,12 +90,50 @@ public class ConversorView extends javax.swing.JFrame {
   }
 
   public static void main(String args[]) {
-    EventQueue.invokeLater(new Runnable() {
-      @Override
-      public void run() {
-        new ConversorView().setVisible(true);
-      }
-    });
+    EventQueue.invokeLater(() -> new ConversorView().setVisible(true));
+  }
+
+  protected void configureLayout() {
+    GroupLayout layout = new GroupLayout(getContentPane());
+    getContentPane().setLayout(layout);
+    layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
+        layout
+        .createSequentialGroup()
+        .addContainerGap()
+        .addGroup(
+            layout
+            .createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(
+                layout
+                .createSequentialGroup()
+                .addComponent(celsiusTextField, GroupLayout.PREFERRED_SIZE,
+                    GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(celsiusLabel))
+                    .addGroup(
+                        layout.createSequentialGroup().addComponent(convertButton)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fahrenheitLabel)))
+                        .addContainerGap(27, Short.MAX_VALUE)));
+
+    layout.linkSize(SwingConstants.HORIZONTAL, new Component[] { convertButton,
+        celsiusTextField });
+
+    layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
+        layout
+        .createSequentialGroup()
+        .addContainerGap()
+        .addGroup(
+            layout
+            .createParallelGroup(Alignment.BASELINE)
+            .addComponent(celsiusTextField, GroupLayout.PREFERRED_SIZE,
+                GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addComponent(celsiusLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(
+                    layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(convertButton).addComponent(fahrenheitLabel))
+                    .addContainerGap(21, Short.MAX_VALUE)));
   }
 
 }

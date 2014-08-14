@@ -19,8 +19,8 @@ public class ConversorViewModel {
 		return this.gradosCelsius;
 	}
 
-	public void setGradosCelsius(double millas) {
-		this.gradosCelsius = millas;
+	public void setGradosCelsius(double grados) {
+		this.gradosCelsius = grados;
 	}
 
 	public double getGradosFarenheit() {

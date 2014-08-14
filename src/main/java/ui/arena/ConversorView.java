@@ -13,17 +13,17 @@ import org.uqbar.arena.windows.MainWindow;
 /**
  * Ejemplo de conversor de medidas con el framework Arena. Es una ventana que
  * tiene como modelo una instancia de la clase {@link ConversorViewModel}.
- * 
+ *
  * Muestra:
  * <ul>
  * <li>un textbox donde se ingresa el valor de entrada</li>
  * <li>un botón para ejecutar la conversión.</li>
  * <li>un label donde se muestra el resultado de la conversión.</li>
  * </ul>
- * 
+ *
  * IMPORTANTE: Correr esta clase con el siguiente argumento a la VM
  * -Djava.system.class.loader=org.uqbar.arena.aop.ArenaClassLoader
- * 
+ *
  * @author npasserini
  */
 public class ConversorView extends MainWindow<ConversorViewModel> {
@@ -34,7 +34,7 @@ public class ConversorView extends MainWindow<ConversorViewModel> {
 
   @Override
   public void createContents(Panel mainPanel) {
-    this.setTitle("Conversor de grados Celsius a Farenheit");
+    setTitle("Conversor de grados Celsius a Farenheit");
     mainPanel.setLayout(new VerticalLayout());
 
     new Label(mainPanel).setText("Ingrese los grados celsius");
@@ -42,12 +42,12 @@ public class ConversorView extends MainWindow<ConversorViewModel> {
     new TextBox(mainPanel).bindValueToProperty("gradosCelsius");
 
     new Button(mainPanel) //
-        .setCaption("Convertir a Farenheit") //
-        .onClick(new MessageSend(this.getModelObject(), "convertir"));
+    .setCaption("Convertir a Farenheit") //
+    .onClick(new MessageSend(getModelObject(), "convertir"));
 
     new Label(mainPanel) //
-        .setBackground(Color.ORANGE) //
-        .bindValueToProperty("gradosFarenheit");
+    .setBackground(Color.ORANGE) //
+    .bindValueToProperty("gradosFarenheit");
 
     new Label(mainPanel).setText(" Farenheit");
   }
