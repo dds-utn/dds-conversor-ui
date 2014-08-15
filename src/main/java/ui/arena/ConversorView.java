@@ -2,7 +2,6 @@ package ui.arena;
 
 import java.awt.Color;
 
-import org.uqbar.arena.actions.MessageSend;
 import org.uqbar.arena.layout.VerticalLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Label;
@@ -43,7 +42,7 @@ public class ConversorView extends MainWindow<ConversorViewModel> {
 
     new Button(mainPanel) //
     .setCaption("Convertir a Farenheit") //
-    .onClick(new MessageSend(getModelObject(), "convertir"));
+    .onClick(() -> getModelObject().convertir());
 
     new Label(mainPanel) //
     .setBackground(Color.ORANGE) //
