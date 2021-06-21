@@ -7,6 +7,12 @@
   <name>conversor-ui-arena</name>
   <description>Ejemplo más simple de una aplicación con Arena usando bindings.</description>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
   <parent>
     <groupId>org.uqbar-project</groupId>
     <artifactId>uqbar-parent-project</artifactId>
