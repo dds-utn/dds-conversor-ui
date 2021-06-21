@@ -50,10 +50,33 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+            <execution>
+                <id>build-b</id>
+                <phase>package</phase>
+                <goals>
+                    <goal>single</goal>
+                </goals>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>ui.arena.ConversorView</mainClass>
+                        </manifest>
+                    </archive>
+                    <finalName>conversor</finalName>
+                </configuration>
+            </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 
-  <!-- Los repositorios son sólo necesarios si no fueron agregados ya al 
+  <!-- Los repositorios son sólo necesarios si no fueron agregados ya al
     settings.xml como se explica en http://uqbar-wiki.org/index.php?title=Configuraci%C3%B3n_de_Maven_para_poder_utilizar_las_herramientas_de_Uqbar -->
   <repositories>
     <repository>
